@@ -1,2 +1,3 @@
 # TerroristTracker
 This software is a portion of the algorithm used for the research project I did with Nikhil Sardana. The uploaded code includes parts of the image recognition program and some overall evaluation networks, but is not complete as certain parts of the code will remain private. Some parts may be outdated.
+The purpose of this portion of the algorithm is to automatically process and detect ISIS flags in images. Through testing, it was found to have an accuracy of 93.5% on a large variety of iamges.
