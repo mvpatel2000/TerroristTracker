@@ -20,8 +20,8 @@ public class ParseFollowers {
             while(sc.hasNextLine()) {
                  String thisLine = sc.nextLine();
                  if(thisLine.equals("Followers") || thisLine.equals("Follow")) {
-                    String dank = sc.nextLine();
-                    if(!(dank.equals("Close") || dank.equals("Options"))) {
+                    String prt = sc.nextLine();
+                    if(!(prt.equals("Close") || prt.equals("Options"))) {
                        String followers = sc.nextLine();
                        w.println(followers); // follower names
                        myUsers.add(followers);
@@ -31,11 +31,11 @@ public class ParseFollowers {
             w.close();
           } 
         }
-        PrintWriter dank = new PrintWriter("Data/listofUsers.txt");
+        PrintWriter prt = new PrintWriter("Data/listofUsers.txt");
         for(String s: myUsers) {
-            dank.println(s);
+            prt.println(s);
         }
-        dank.close();    
+        prt.close();    
    }   
    
 }   

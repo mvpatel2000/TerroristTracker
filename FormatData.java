@@ -196,7 +196,7 @@ public class FormatData {
            if(english.length()<(caption.length()/10)) {
                 return "";
            } else {    
-               System.out.println(english + " fuck yu " + caption);
+               System.out.println(english + " darn " + caption);
                return caption;
             }   
         }
@@ -465,7 +465,7 @@ public class FormatData {
     ArrayList<String> fUsers = createUserList("Script2/flagged.txt");
     ArrayList<String> nfUsers = createUserList("Script2/notflagged.txt");
     
-    ArrayList<int[]> dipshit = calculateScore(userData);
+    ArrayList<int[]> tempvar = calculateScore(userData);
 
     
     //**************************END WRITING TO FILES********************************
@@ -476,13 +476,13 @@ public class FormatData {
            int numCorrectNotFlagged = 0;
            int numIncorrectNotFlagged = 0;
           for (int e=0; e<userData.size(); e++) {
-                if(dipshit.get(e)[(int)(u*100)]==0) {
+                if(tempvar.get(e)[(int)(u*100)]==0) {
                     numCorrectFlagged++;
-                } else if (dipshit.get(e)[(int)(u*100)]==1) {
+                } else if (tempvar.get(e)[(int)(u*100)]==1) {
                     numIncorrectFlagged++;
-                } else if(dipshit.get(e)[(int)(u*100)]==2) {
+                } else if(tempvar.get(e)[(int)(u*100)]==2) {
                     numCorrectNotFlagged++;
-                } else if(dipshit.get(e)[(int)(u*100)]==3) {
+                } else if(tempvar.get(e)[(int)(u*100)]==3) {
                     numIncorrectNotFlagged++;
                 }
            }
@@ -578,7 +578,7 @@ public class FormatData {
    
    private ArrayList<Integer> calculateScore(ArrayList<String> userData) {
    
-        ArrayList<int> dipshit = new ArrayList<int>();
+        ArrayList<int> tempvar = new ArrayList<int>();
         
        for(int i=0; i<userData.size(); i++) {
             Scanner memes = new Scanner(new File("Script2/Data/"+userData.get(i)[0]+".txt"));
@@ -665,10 +665,10 @@ public class FormatData {
                     }
                 }                                
             }
-            dipshit.add(isItCorrect);
+            tempvar.add(isItCorrect);
        
         } 
-        return dipshit;
+        return tempvar;
    }   
    
    private static double trimmedMean(double[] data) {

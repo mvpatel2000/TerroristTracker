@@ -56,16 +56,16 @@ public class UserCaptionData {
     ArrayList<String> fUsers = createUserList("Script/flagged.txt");
     ArrayList<String> nfUsers = createUserList("Script/notflagged.txt");
     
-    ArrayList<int[]> dipshit = calculateScore(userData, fUsers, nfUsers);
+    ArrayList<int[]> tarry = calculateScore(userData, fUsers, nfUsers);
 
     //***********************************************************************************
-    //FOR TODAY ONLY, REWRITING DIPSHIT TO CONTAIN DATA FROM DATA/TESTDATA/MEMES (bots)
-    // AND DATA/TESTDATA/DANK (not bots)
+    //FOR TODAY ONLY, REWRITING tarry TO CONTAIN DATA FROM DATA/TESTDATA/MEMES (bots)
+    // AND DATA/TESTDATA (not bots)
     //************************************************************************************
     /**
-    dipshit = new ArrayList<int[]>();
+    tarry = new ArrayList<int[]>();
     Scanner bots = new Scanner(new File("Data/testdata/memes.txt"));             //****
-    Scanner notBots = new Scanner(new File("Data/testdata/dank.txt"));         //****
+    Scanner notBots = new Scanner(new File("Data/testdata/sweet.txt"));         //****
     ArrayList<String[]> myBots = new ArrayList<String[]>();                     //****
     ArrayList<String[]> myNotBots = new ArrayList<String[]>();                  //****
     while(bots.hasNextLine()) {                                                 //****
@@ -158,7 +158,7 @@ public class UserCaptionData {
                 }
             }                                
         }
-        dipshit.add(isItCorrect); 
+        tarry.add(isItCorrect); 
 
     }*/
     
@@ -174,10 +174,10 @@ public class UserCaptionData {
            int numIncorrectFlagged = 0;
            int numCorrectNotFlagged = 0;
            int numIncorrectNotFlagged = 0;
-          for (int e=0; e<userData.size(); e++) { //change to userData.size when done with dipshit re-data
-                if(dipshit.get(e)[u-min]==0) {
+          for (int e=0; e<userData.size(); e++) { //change to userData.size when done with tarry re-data
+                if(tarry.get(e)[u-min]==0) {
                     numCorrectFlagged++;
-                } else if (dipshit.get(e)[u-min]==1) {
+                } else if (tarry.get(e)[u-min]==1) {
                     numIncorrectFlagged++;
                     //int myVal = 0;
                     //System.out.print("FalPos \t");
@@ -229,9 +229,9 @@ public class UserCaptionData {
                             }
                             System.out.print(myVal + "\t"); 
                             System.out.println(myUsers[e]);*/
-                } else if(dipshit.get(e)[u-min]==2) {
+                } else if(tarry.get(e)[u-min]==2) {
                     numCorrectNotFlagged++;
-                } else if(dipshit.get(e)[u-min]==3) {
+                } else if(tarry.get(e)[u-min]==3) {
                     numIncorrectNotFlagged++;
                     //int myVal = 0;
                     //System.out.print("Missed \t");
@@ -382,7 +382,7 @@ public class UserCaptionData {
    
    private static ArrayList<int[]> calculateScore(ArrayList<String[]> userData, ArrayList<String> fUsers, ArrayList<String> nfUsers) throws Exception {
    
-        ArrayList<int[]> dipshit = new ArrayList<int[]>();
+        ArrayList<int[]> tarry = new ArrayList<int[]>();
        System.out.println("USERNAME\t\tDays\t%Eng\tFlwng\tPst/Day\t%ISIS\tFlwrs\tFlwr/Flwing\t Caption/Posts \t ISISPics \t Total");
         
         double[] myFollowers = new double[userData.size()];
@@ -396,7 +396,7 @@ public class UserCaptionData {
         double[] myPostsOverDays2 = new double[userData.size()];
         double[] myCaptionsOverPosts = new double[userData.size()];
         double[] myISISPics = new double[userData.size()];
-        String dank = "";
+        String sweet = "";
         String lel = ""; 
         String corrnf = "";
         String corrf = "";
@@ -419,14 +419,14 @@ public class UserCaptionData {
             //System.out.println(userData.get(i)[0]);
             String meFoll = memes.nextLine();
             String meFlwng = memes.nextLine();
-            double dankPosts = Double.parseDouble(mePosts.replaceAll("[^\\d.]", ""));
+            double sweetPosts = Double.parseDouble(mePosts.replaceAll("[^\\d.]", ""));
             double followers = Double.parseDouble(meFoll.replaceAll("[^\\d.]", ""));
             double following = Double.parseDouble(meFlwng.replaceAll("[^\\d.]", ""));
             if(mePosts.contains("k")) {
-                dankPosts = dankPosts * 1000;
+                sweetPosts = sweetPosts * 1000;
             }
             if(mePosts.contains("m")) {
-                dankPosts = dankPosts * 1000000;
+                sweetPosts = sweetPosts * 1000000;
             }            
             if(meFoll.contains("k")) {
                 followers = followers * 1000;
@@ -467,7 +467,7 @@ public class UserCaptionData {
             myFollowers[i] = followers;
             myFollowing[i] = following;
             myPosts[i] = posts;
-            myVerification[i] = dankPosts;
+            myVerification[i] = sweetPosts;
             myDays[i] = days;
             myPercentEnglish[i] = percentEnglish/(numCaptions+0.001);
             myPercentISIS[i] = percentISIS/(numCaptions+0.001);
@@ -541,8 +541,8 @@ public class UserCaptionData {
                                 TMP = TMP.substring(0,15);
                             else if(TMP.length()<8)
                                 TMP += "   ";
-                            dank += (TMP + "\t\t" + subValue1 + "\t" + subValue2 + "\t" + subValue3 + "\t" + subValue4 + "\t" + subValue5 + "\t" + subValue6 + "\t" + subValue7 + "\t\t" + subValue8 + "\t\t" + subValue9 + "\t\t" + value + "\tFPOS");
-                            dank += "\n";
+                            sweet += (TMP + "\t\t" + subValue1 + "\t" + subValue2 + "\t" + subValue3 + "\t" + subValue4 + "\t" + subValue5 + "\t" + subValue6 + "\t" + subValue7 + "\t\t" + subValue8 + "\t\t" + subValue9 + "\t\t" + value + "\tFPOS");
+                            sweet += "\n";
                         }  
                     }    
                 } else {
@@ -567,7 +567,7 @@ public class UserCaptionData {
                     }
                 }                                
             }
-            dipshit.add(isItCorrect);
+            tarry.add(isItCorrect);
             
         }
         String a = "";
@@ -581,7 +581,7 @@ public class UserCaptionData {
         } 
         System.out.println(a);
         System.out.println(b);       
-        System.out.println(dank);
+        System.out.println(sweet);
         System.out.println(lel);
         System.out.println(corrf);
         System.out.println(corrnf);
@@ -627,28 +627,28 @@ public class UserCaptionData {
         }
         excel.close();  
         
-        return dipshit;  
+        return tarry;  
    }   
    
    
    private static double[] calculateStats (double[] myDouble) {
-        double[] dank = myDouble.clone(); //create a copy because Arrays.sort() below messes up order
+        double[] sweet = myDouble.clone(); //create a copy because Arrays.sort() below messes up order
         double[] zScore = new double[myDouble.length];
         double trimmedMean = trimmedMean(myDouble);
         double variance = 0;
         double sum = 0;
-        for(int i=0; i<dank.length; i++) {
-            sum+=dank[i];
-            variance += Math.pow(dank[i]-trimmedMean, 2);
+        for(int i=0; i<sweet.length; i++) {
+            sum+=sweet[i];
+            variance += Math.pow(sweet[i]-trimmedMean, 2);
         }
-        variance = variance/dank.length;
+        variance = variance/sweet.length;
         double standDev = Math.sqrt(variance);
         
         System.out.println(trimmedMean);
         System.out.println(standDev);
         System.out.println();
-        for(int j=0; j<dank.length; j++) {
-            double thisZScore = (dank[j]-trimmedMean)/standDev;
+        for(int j=0; j<sweet.length; j++) {
+            double thisZScore = (sweet[j]-trimmedMean)/standDev;
             zScore[j] = thisZScore;
         }
         
